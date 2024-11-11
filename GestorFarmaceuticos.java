@@ -21,8 +21,10 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements Serializ
         return nm;
     }
 
-    public Farmaceutico removeFarmaceutico(String id) {
-        return farmaceuticos.remove(id);
+    public Farmaceutico removeFarmaceutico(String nome) {
+        if (farmaceuticos.equals(id)) {
+            farmaceuticos.remove(id);
+        }
     }
 
     public Farmaceutico getFarmaceutico(String id) {
@@ -59,6 +61,10 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements Serializ
     public int totalFarmaceuticos() {
         return farmaceuticos.size();
     }
+
+
+}
+
 
     
 }
