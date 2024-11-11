@@ -56,6 +56,9 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements Serializ
         }
     }
 
+    public int totalFarmaceuticos() {
+        return farmaceuticos.size();
+    }
 
+    
 }
-
