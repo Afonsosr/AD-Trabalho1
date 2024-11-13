@@ -6,9 +6,9 @@ import java.util.List;
 public interface APIGestorEnfermeiro {
     public Enfermeiro createEnfermeiro(String nome, String telefone, String especialidade) throws RemoteException;
 
-    public Enfermeiro getMedicos(String id) throws RemoteException;
+    public Enfermeiro getEnfermeiro(String id) throws RemoteException;
 
-    public Enfermeiro removeMedico(String id) throws RemoteException;
+    public Enfermeiro removeEnfermeiro(String id) throws RemoteException;
 
     public List<String> procuraEnfemeiro(String nome) throws RemoteException;
 

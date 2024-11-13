@@ -1,15 +1,15 @@
 package Trabalho;
 
-import Medico;
-import Utente;
-import Medicamento;
-import Enfermeiro;
-import Farmaceutico;
-import APIGestorFarmaceuticos;
-import APIGestorMedicamentos;
-import APIGestorEnfermeiro;
-import APIGestorMedicos;
-import APIGestorUtentes;
+import Trabalho.Medico;
+import Trabalho.Utente;
+import Trabalho.Medicamento;
+import Trabalho.Enfermeiro;
+import Trabalho.Farmaceutico;
+import Trabalho.APIGestorFarmaceuticos;
+import Trabalho.APIGestorMedicamentos;
+import Trabalho.APIGestorEnfermeiro;
+import Trabalho.APIGestorMedicos;
+import Trabalho.APIGestorUtentes;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
@@ -63,7 +63,7 @@ public class AppGLM {
 
                 case 2: // Procurar medicamento por ID
                     System.out.print("ID do medicamento: ");
-                    String id = scanner.nextLine();  // Use String para capturar o ID corretamente
+                    String id = scanner.nextLine();
                     Medicamento medicamento = gestor.getMedicamento(String.valueOf(id));
 
                     if (medicamento != null) {
@@ -76,20 +76,21 @@ public class AppGLM {
                     }
                     break;
 
-                case 3: //Pocurar por nome
+                case 3: // Procurar por nome
                     System.out.print("Nome do medicamento a procurar: ");
                     String nomeMedicamento = scanner.nextLine();
                     List<String> idsMedicamentos = gestor.procuraMedicamento(nomeMedicamento);
 
                     if (!idsMedicamentos.isEmpty()) {
                         System.out.println("Medicamentos encontrados com o nome '" + nomeMedicamento + "':");
-                        for (String id : idsMedicamentos) {
-                            System.out.println("ID: " + id);
+                        for (String idMedicamento : idsMedicamentos) {
+                            System.out.println("ID: " + idMedicamento);
                         }
                     } else {
                         System.out.println("Nenhum medicamento encontrado com o nome '" + nomeMedicamento + "'.");
                     }
                     break;
+
 
                 case 4: //Alterar o fornecedor
                     System.out.print("ID do medicamento a alterar o fornecedor: ");
@@ -111,7 +112,7 @@ public class AppGLM {
 
                 case 6: //Aumententar a quantidade de um medicamento
                     System.out.print("ID do medicamento: ");
-                    String idMedicamento = scanner.nextLine();
+                    idMedicamento = scanner.nextLine();
                     System.out.print("Quantidade a aumentar: ");
                     int quantidadeAumentar = scanner.nextInt();
                     gestor.aumentaStock(idMedicamento, quantidadeAumentar);

@@ -1,7 +1,8 @@
-package trabalho;
+package Trabalho;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public class GLMRMIServer {
@@ -14,8 +15,8 @@ public class GLMRMIServer {
             APIGestorMedicos gm = new GestorMedicos();
             APIGestorUtentes gut = new GestorUtentes();
 
-            Naming.rebind("rmi://localhost:50001/GE",ge);
-            Naming.rebind("rmi://localhost:50001/GF",gf);
+            Naming.rebind("rmi://localhost:50001/GE", (Remote) ge);
+            Naming.rebind("rmi://localhost:50001/GF", (Remote) gf);
             Naming.rebind("rmi://localhost:50001/GMED",gmed);
             Naming.rebind("rmi://localhost:50001/GM",gm);
             Naming.rebind("rmi://localhost:50001/GUT",gut);

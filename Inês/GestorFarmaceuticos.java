@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GestorFarmaceuticos extends UnicastRemoteObject implements Serializable {
+public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGestorFarmaceuticos, Serializable {
 
     private Map<String, Farmaceutico> farmaceuticos;
 
