@@ -18,6 +18,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 import java.util.Scanner;
 
+
+
 public class AppGLM {
     public static void main(String[] args) {
         try {
