@@ -19,7 +19,7 @@ public class GestorMedicos extends UnicastRemoteObject implements APIGestorMedic
     }
 
     public Medico createMedico(String nome, String telefone, String especialidade) {
-        Medico nm = new Medico(nome,telefone, especialidade);
+        Medico nm = new Medico(nome,telefone,especialidade);
         medicos.put(nm.getId(), nm);
         return nm;
     }

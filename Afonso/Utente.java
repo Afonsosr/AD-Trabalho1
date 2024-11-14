@@ -22,7 +22,7 @@ public class Utente implements Serializable {
         this.condicoes = new ArrayList<>();
     }
 
-    public Utente() {
+    public Utente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao) {
         this.id = UUID.randomUUID().toString();
     }
 

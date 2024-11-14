@@ -16,7 +16,7 @@ public class Medico implements Serializable {
         this.especialidade = especialidade;
     }
 
-    public Medico() {
+    public Medico(String nome, String telefone, String especialidade) {
         this.id = UUID.randomUUID().toString();
     }
 

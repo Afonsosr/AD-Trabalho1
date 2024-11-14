@@ -20,7 +20,7 @@ public class GestorUtentes extends UnicastRemoteObject implements APIGestorUtent
     }
 
     public Utente createUtente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao) {
-        Utente nu = new Utente(nome, genero, dataNascimento, medicacao);
+        Utente nu = new Utente(nome,genero,dataNascimento,medicacao);
         utentes.put(nu.getId(), nu);
         return nu;
     }

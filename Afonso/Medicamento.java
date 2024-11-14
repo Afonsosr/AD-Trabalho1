@@ -9,15 +9,20 @@ public class Medicamento implements Serializable {
     private String fornecedor;
     private Integer stock;
 
-    public Medicamento(String id, String nome, String fornecedor, Integer stock) {
-        this.id = UUID.randomUUID().toString();
+    // Construtor com nome, fornecedor e stock, com ID gerado automaticamente
+    public Medicamento(String nome, String fornecedor, Integer stock) {
+        this.id = UUID.randomUUID().toString(); // Gera automaticamente o ID
         this.nome = nome;
         this.fornecedor = fornecedor;
         this.stock = stock;
     }
 
-    public Medicamento() {
-        this.id = UUID.randomUUID().toString();
+    // Construtor alternativo sem o parâmetro de stock
+    public Medicamento(String nome, String fornecedor) {
+        this.id = UUID.randomUUID().toString(); // Gera automaticamente o ID
+        this.nome = nome;
+        this.fornecedor = fornecedor;
+        this.stock = 0;
     }
 
     public String getId() {
@@ -45,17 +50,13 @@ public class Medicamento implements Serializable {
         this.fornecedor = fornecedor;
     }
 
-
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Medicamento{" +
                 "id='" + id + '\'' +
-                "nome='" + nome + '\'' +
+                ", nome='" + nome + '\'' +
                 ", fornecedor='" + fornecedor + '\'' +
                 ", stock=" + stock +
                 '}';
     }
-
 }
-
-

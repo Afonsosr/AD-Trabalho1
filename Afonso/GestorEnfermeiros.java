@@ -19,13 +19,18 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
     }
 
     public Enfermeiro createEnfermeiro(String nome, String telefone, String especialidade) {
-        Enfermeiro nm = new Enfermeiro(nome, telefone, especialidade);
+        Enfermeiro nm = new Enfermeiro(nome,telefone,especialidade);
         enfermeiros.put(nm.getId(), nm);
         return nm;
     }
 
     public Enfermeiro removeEnfermeiro(String id) {
         return enfermeiros.remove(id);
+    }
+
+
+    public List<String> procuraEnfermeiro(String nome) throws RemoteException {
+        return List.of();
     }
 
     public Enfermeiro getEnfermeiro(String id) {
