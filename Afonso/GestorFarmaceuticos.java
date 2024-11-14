@@ -18,7 +18,7 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGesto
     }
 
     public Farmaceutico createFarmaceutico(String nome, String telefone) {
-        Farmaceutico nm = new Farmaceutico(nome, telefone);
+        Farmaceutico nm = new Farmaceutico(nome,telefone);
         farmaceuticos.put(nm.getId(), nm);
         return nm;
     }
