@@ -4,15 +4,19 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.*;
 
 
 
+//******************************************
+//******************************************
 
-// FALTA CRIAR UMA CENA PARA AS ESTATÍSTICAS
+// FALTA CRIAR UM MENU E FUNCOES PARA AS ESTATÍSTICAS
 
+//******************************************
+//******************************************
 
 
 
@@ -24,8 +28,8 @@ public class AppGPC {
         try {
 
 
-            APIGestorEnfermeiro enfer = null;
-            enfer = (APIGestorEnfermeiro)Naming.lookup("rmi://localhost:50001/GE");
+            APIGestorEnfermeiros enfer = null;
+            enfer = (APIGestorEnfermeiros)Naming.lookup("rmi://localhost:50001/GE");
             APIGestorFarmaceuticos farma = null;
             farma = (APIGestorFarmaceuticos) Naming.lookup("rmi://localhost:50001/GF");
             APIGestorMedicos medic = null;
@@ -34,6 +38,8 @@ public class AppGPC {
             utent = (APIGestorUtentes) Naming.lookup("rmi://localhost:50001/GUT");
             APIGestorMedicamentos meds = null;
             meds = (APIGestorMedicamentos) Naming.lookup("rmi://localhost:50001/GMED");
+            APIGestorActos acts = null;
+            acts = (APIGestorActos) Naming.lookup("rmi://localhost:50001/GACT");
 
 
 
@@ -61,51 +67,43 @@ public class AppGPC {
             medic.createMedico("Ricardo Monteiro", "926789012", "Ginecologia");
 
 
+                                            // *******************************************
+            // Criar 5 utentes              // falta arranjar aqui as coisas das datas
+                                            // *******************************************
             /*
-            // Criar 5 utentes
             ArrayList<String> medicacao1 = new ArrayList<>();
             medicacao1.add("Paracetamol");
-            medicacao1.add("Ibuprofeno");
-
             ArrayList<String> condicoes1 = new ArrayList<>();
             condicoes1.add("Diabetes");
             condicoes1.add("Hipertensão");
+            utent.createUtente("Joana Neves", "Feminino", (1985,3,14), medicacao1, condicoes1);
 
-            utent.createUtente("UT001", "Joana Neves", "Feminino", LocalDate.of(1985, 3, 14), medicacao1, condicoes1);
-
-            ArrayList<String> medicacao2 = new ArrayList<>();
-            medicacao2.add("Amoxicilina");
-
+            ArrayList<String> medicacao2 = new ArrayList<>(); // Sem medicamentos
             ArrayList<String> condicoes2 = new ArrayList<>();
             condicoes2.add("Alergia a pólen");
-
-            utent.createUtente("UT002", "Miguel Nunes", "Masculino", LocalDate.of(1990, 7, 22), medicacao2, condicoes2);
+            condicoes2.add("Asma");
+            utent.createUtente("Miguel Nunes", "Masculino", (1990, 7, 22), medicacao2, condicoes2);
 
             ArrayList<String> medicacao3 = new ArrayList<>();
             medicacao3.add("Losartana");
-
             ArrayList<String> condicoes3 = new ArrayList<>();
             condicoes3.add("Pressão Alta");
-
-            utent.createUtente("UT003", "Patrícia Rocha", "Feminino", LocalDate.of(1978, 11, 5), medicacao3, condicoes3);
+            utent.createUtente("Patrícia Rocha", "Feminino",(1978, 11, 5), medicacao3, condicoes3);
 
             ArrayList<String> medicacao4 = new ArrayList<>();
             medicacao4.add("Omeprazol");
-
             ArrayList<String> condicoes4 = new ArrayList<>();
             condicoes4.add("Refluxo");
-
-            utent.createUtente("UT004", "Bruno Lima", "Masculino", LocalDate.of(2001, 9, 18), medicacao4, condicoes4);
+            condicoes4.add("Gastrite");
+            utent.createUtente("Bruno Lima", "Masculino", (2001,9, 18), medicacao4, condicoes4);
 
             ArrayList<String> medicacao5 = new ArrayList<>();
             medicacao5.add("Vitamina D");
-
+            medicacao5.add("Ferro");
             ArrayList<String> condicoes5 = new ArrayList<>();
             condicoes5.add("Anemia");
-
-            utent.createUtente("UT005", "Carla Mendes", "Feminino", LocalDate.of(1995, 2, 27), medicacao5, condicoes5);
+            utent.createUtente("Carla Mendes", "Feminino", (1995,2,27), medicacao5, condicoes5);
             */
-
 
             System.out.println("------Login------");
             System.out.println("Utilizador: ");
@@ -119,7 +117,7 @@ public class AppGPC {
                 System.out.println("2- Procurar Enfermeiro Telefone");
                 System.out.println("3- Procurar Farmaceutico Nome");
                 System.out.println("4- Procurar Utente Nome");
-                System.out.println("5- Pedir medicamento");
+                System.out.println("5- Administração de medicamento");
                 System.out.println("6- Realizar Acto Médico");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
@@ -156,17 +154,32 @@ public class AppGPC {
                     }
                 }
                 else if(menu == 5) {
-                    return;    // dispensa de medicamento a um utente. aqui atualiza a medicacao do utente e depois faz atuaizacao no GLM
-                }                               // Faltam estes dois
+                    //Aumententar a quantidade de um medicamento
+                    System.out.print("ID do medicamento: ");
+                    String idMedicamento = scanner.nextLine();
+                    System.out.print("Quantidade a administrar(valor de diminuição de stock): ");
+                    int quantidadeDiminuir = scanner.nextInt();
+                    meds.reduzStock(idMedicamento, quantidadeDiminuir);
+                    System.out.println("Atualização efetuada, tem autorização para utilizar medicamento!");
+                }
                 else if(menu == 6) {
-                    return;
+                    System.out.print("ID do utente: ");
+                    String idut = scanner.nextLine();
+                    System.out.print("ID do profissional: ");
+                    String idprof = scanner.nextLine();
+                    System.out.print("Data do acto: ");     // *******************************************
+                    String data = scanner.nextLine();      // Aqui nao é string, é outra coisa qualquer de data
+                    System.out.print("Descrição: ");        // *******************************************
+                    String desc = scanner.nextLine();
+                    acts.createActo(idut,idprof, LocalDateTime.parse(data),desc);
+                    System.out.println("Acto médico realizado com sucesso!");               
                 }
 
             }
             else if (Objects.equals(log, "enf") && Objects.equals(pass, "enf")) {
                 System.out.println("1- Procurar Médico Nome");
                 System.out.println("2- Procurar Medicamento");
-                System.out.println("3- Altera Stock Medicamento");
+                System.out.println("3- Utilizar Medicamento");
                 System.out.println("4- Procurar Utente Nome");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
@@ -187,7 +200,12 @@ public class AppGPC {
                     }
                 }
                 else if(menu == 3) {
-                    return;                                        // falta este
+                    System.out.print("ID do medicamento: ");
+                    String idMedicamentoReduzir = scanner.nextLine();
+                    System.out.print("Quantidade consumida: ");
+                    int quantidadeReduzir = scanner.nextInt();
+                    meds.reduzStock(idMedicamentoReduzir, quantidadeReduzir);
+                    System.out.println("Permissão concedida, pode utilizar medicamento!");
                 }
                 else if(menu == 4) {
                     System.out.println("Por que nome deseja procurar? :");
@@ -249,7 +267,7 @@ public class AppGPC {
                     }
                 }
                 else if(menu == 6) {
-                    return;                        // falta este
+                    return;                        // falta este, SO QUANDO SE ARRANJAR A PARTE DE CRIAR O UTENTE (A PARTE DAS DATAS)
                 }
             }
 

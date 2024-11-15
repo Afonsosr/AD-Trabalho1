@@ -1,4 +1,4 @@
-/*package trabalho;
+package trabalho;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ public class Acto implements Serializable {
     private String descricao;
 
 
-    public Acto(String id, String nome, String telefone) {
+    public Acto(String id_acto, String id_utente, String id_profissional, LocalDateTime data_acto, String descricao) {
         this.id_acto  = UUID.randomUUID().toString();
         this.id_utente = id_utente;
         this.id_profissional = id_profissional;
@@ -21,7 +21,7 @@ public class Acto implements Serializable {
 
     }
 
-    public Acto() {
+    public Acto(String id_utente, String id_profissional, LocalDateTime data_acto, String descricao) {
         this.id_acto = UUID.randomUUID().toString();
     }
 
@@ -69,4 +69,4 @@ public class Acto implements Serializable {
 
 }
 
-*/
+

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorEnfermeiro, Serializable {
+public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorEnfermeiros, Serializable {
 
     private Map<String, Enfermeiro> enfermeiros;
 

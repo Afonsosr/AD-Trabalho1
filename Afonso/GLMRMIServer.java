@@ -8,17 +8,19 @@ public class GLMRMIServer {
     public static void main(String[] args) {
 
         try {
-            APIGestorEnfermeiro ge = new GestorEnfermeiros();
+            APIGestorEnfermeiros ge = new GestorEnfermeiros();
             APIGestorFarmaceuticos gf = new GestorFarmaceuticos();
             APIGestorMedicamentos gmed = new GestorMedicamentos();
             APIGestorMedicos gm = new GestorMedicos();
             APIGestorUtentes gut = new GestorUtentes();
+            APIGestorActos gac = new GestorActos();
 
             Naming.rebind("rmi://localhost:50001/GE",ge);
             Naming.rebind("rmi://localhost:50001/GF",gf);
             Naming.rebind("rmi://localhost:50001/GMED",gmed);
             Naming.rebind("rmi://localhost:50001/GM",gm);
             Naming.rebind("rmi://localhost:50001/GUT",gut);
+            Naming.rebind("rmi://localhost:50001/GACT",gac);
             System.out.println("Running");
 
         } catch (RemoteException e) {
