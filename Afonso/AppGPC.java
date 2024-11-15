@@ -4,27 +4,18 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-
-
-
-/*
-import Medico;
-import Utente;
-import Medicamento;
-import Enfermeiro;                         // FALTA CRIAR UMA CENA PARA AS ESTATÍSTICAS
-import Farmaceutico;
-import APIGestorFarmaceuticos;
-import APIGestorMedicamentos;
-import APIGestorEnfermeiro;
-import APIGestorMedicos;
-import APIGestorUtentes;
-import APIGestorFarmaceuticos;*/
-
 import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
+
+
+
+
+// FALTA CRIAR UMA CENA PARA AS ESTATÍSTICAS
+
+
+
+
 
 
 public class AppGPC {
@@ -131,6 +122,7 @@ public class AppGPC {
                 System.out.println("5- Pedir medicamento");
                 System.out.println("6- Realizar Acto Médico");
                 int menu = scanner.nextInt();
+                scanner.nextLine();
                 if(menu == 1) {
                     System.out.println("Por que nome deseja procurar? :");
                     String nome = scanner.nextLine();
@@ -177,6 +169,7 @@ public class AppGPC {
                 System.out.println("3- Altera Stock Medicamento");
                 System.out.println("4- Procurar Utente Nome");
                 int menu = scanner.nextInt();
+                scanner.nextLine();
                 if(menu == 1) {
                     System.out.println("Por que nome deseja procurar? :");
                     String nome = scanner.nextLine();
@@ -214,6 +207,7 @@ public class AppGPC {
                 System.out.println("5- Procurar Utente Nome");
                 System.out.println("6- Alterar Medicação Utente");
                 int menu = scanner.nextInt();
+                scanner.nextLine();
                 if(menu == 1) {
                     System.out.println("Por que nome deseja procurar? :");
                     String nome = scanner.nextLine();
