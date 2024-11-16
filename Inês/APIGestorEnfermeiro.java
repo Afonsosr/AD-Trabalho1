@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 import java.util.List;
 
 public interface APIGestorEnfermeiro {
+
+
     public Enfermeiro createEnfermeiro(String nome, String telefone, String especialidade) throws RemoteException;
 
     public Enfermeiro getEnfermeiro(String id) throws RemoteException;
@@ -17,3 +19,4 @@ public interface APIGestorEnfermeiro {
     public void alteraTelefone(String id, String telefone) throws RemoteException;
 
 }
+

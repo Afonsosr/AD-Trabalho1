@@ -1,16 +1,5 @@
 package Trabalho;
 
-import Trabalho.Medico;
-import Trabalho.Utente;
-import Trabalho.Medicamento;
-import Trabalho.Enfermeiro;
-import Trabalho.Farmaceutico;
-import Trabalho.APIGestorFarmaceuticos;
-import Trabalho.APIGestorMedicamentos;
-import Trabalho.APIGestorEnfermeiro;
-import Trabalho.APIGestorMedicos;
-import Trabalho.APIGestorUtentes;
-
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -29,7 +18,6 @@ public class AppGLM {
             APIGestorFarmaceuticos farma = (APIGestorFarmaceuticos) Naming.lookup("rmi://localhost:50001/GF");
             APIGestorMedicos medic = (APIGestorMedicos) Naming.lookup("rmi://localhost:50001/GM");
             APIGestorUtentes utent = (APIGestorUtentes) Naming.lookup("rmi://localhost:50001/GUT");
-            APIGestorMedicamentos meds = (APIGestorMedicamentos) Naming.lookup("rmi://localhost:50001/GMED");
 
             // Cria alguns medicamentos
             gestor.createMedicamento("Paracetamol", "FornecedorA", 50);
