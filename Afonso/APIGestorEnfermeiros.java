@@ -5,7 +5,7 @@ import java.util.List;
 import java.rmi.Remote;
 
 public interface APIGestorEnfermeiros extends Remote{
-    public Enfermeiro createEnfermeiro(String nome, String telefone, String especialidade) throws RemoteException;
+    public void createEnfermeiro(String nome, String telefone, String especialidade) throws RemoteException;
 
     public Enfermeiro getEnfermeiro(String id) throws RemoteException;
 
