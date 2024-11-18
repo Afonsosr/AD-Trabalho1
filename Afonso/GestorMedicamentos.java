@@ -17,6 +17,11 @@ public class GestorMedicamentos extends UnicastRemoteObject implements APIGestor
         medicamentos = new HashMap<>();
     }
 
+    public Medicamento removeMedicamento(String id) {
+
+        return medicamentos.remove(id);
+    }
+
     // Criação de medicamento com ID gerado automaticamente
     public Medicamento createMedicamento(String nome, String fornecedor, Integer stock) {
         Medicamento nm = new Medicamento(nome, fornecedor, stock);
