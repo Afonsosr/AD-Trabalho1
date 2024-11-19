@@ -39,7 +39,7 @@ public class Farmaceutico implements Serializable {
 
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Farmaceutico{" +
                 "id='" + id + '\'' +
                 "nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +
