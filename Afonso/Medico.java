@@ -47,7 +47,7 @@ public class Medico implements Serializable {
 
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Medico{" +
                 "id='" + id + '\'' +
                 "nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +
