@@ -13,7 +13,7 @@ public class Utente implements Serializable {
     private ArrayList<String> medicacao;
     private ArrayList<String> condicoes;
 
-    public Utente(String id, String nome, LocalDate dataNascimento, ArrayList<String> medicacao, ArrayList<String> condicoes) {
+    public Utente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao, ArrayList<String> condicoes) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.genero = genero;

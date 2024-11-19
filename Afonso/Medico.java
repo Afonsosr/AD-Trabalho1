@@ -9,7 +9,7 @@ public class Medico implements Serializable {
     private String telefone;
     private String especialidade;
 
-    public Medico(String id, String nome, String telefone) {
+    public Medico(String nome, String telefone, String especialidade) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.telefone = telefone;
@@ -47,7 +47,7 @@ public class Medico implements Serializable {
 
     @Override
     public String toString() {
-        return "Medico{" +
+        return "Médico{" +
                 "id='" + id + '\'' +
                 "nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +
