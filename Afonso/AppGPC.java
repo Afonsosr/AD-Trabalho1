@@ -73,9 +73,9 @@ public class AppGPC {
 
 
 
-                                            // *******************************************
+            // *******************************************
             // Criar 5 utentes              // falta arranjar aqui as coisas das datas
-                                            // *******************************************
+            // *******************************************
 
             ArrayList<String> medicacao1 = new ArrayList<>();
             medicacao1.add("Paracetamol");
@@ -152,25 +152,35 @@ public class AppGPC {
                         System.out.println("Por que contacto deseja procurar? :");
                         String telefone = scanner.nextLine();
                         List<String> l = enfer1.procuraEnfermeiroTelefone(telefone);
-                        for (String id : l) {
-                            System.out.println("ID: " + id);
+                        if (l.isEmpty()) {
+                            System.out.println("Não foram encontrados enfermeiros com o contacto fornecido.");
+                        } else {
+                            for (String id : l) {
+                                System.out.println("ID: " + id);
+                            }
                         }
                     } else if (menu == 3) {
                         System.out.println("Por que nome deseja procurar? :");
                         String nome = scanner.nextLine();
                         List<String> l = farma.procuraFarmaceutico(nome);
-                        for (String id : l) {
-                            System.out.println("ID: "+ id);
+                        if (l.isEmpty()) {
+                            System.out.println("Não foram encontrados farmaceuticos com o nome fornecido.");
+                        } else {
+                            for (String id : l) {
+                                System.out.println("ID: " + id);
+                            }
                         }
                     } else if (menu == 4) {
                         System.out.println("Por que nome deseja procurar? :");
                         String nome = scanner.nextLine();
-                        List<String> l = utent.procuraUtente(nome);            // por bonito
+                        List<String> l = utent.procuraUtente(nome);
+                        if (l.isEmpty()) {
+                            System.out.println("Não foram encontrados utentes com o nome fornecido.");
+                        } else {
                         for (String id : l) {
                             System.out.println(utent.getUtente(id));
-                        }
+                        }}
                     } else if (menu == 5) {
-                        //Aumententar a quantidade de um medicamento
                         System.out.print("ID do medicamento: ");
                         String idMedicamento = scanner.nextLine();
                         System.out.print("Quantidade a administrar(valor de diminuição de stock): ");
@@ -285,39 +295,60 @@ public class AppGPC {
                 while (menu != 0) {
                     if (menu == 1) {
                         System.out.println("Por que nome deseja procurar? :");
-                        String nome = scanner.nextLine();                           // Por bonito
+                        String nome = scanner.nextLine();
                         List<String> l = medic.procuraMedico(nome);
-                        for (String id : l) {
-                            System.out.println(medic.getMedico(id));
-                        }
+
+                        if (!l.isEmpty()) {
+                            System.out.println("Médicos encontrados com o nome '" + nome + "':");
+                            for (String id : l) {
+                                System.out.println("ID: " + id);
+                            }
+                        } else {
+                            System.out.println("Nenhum médico encontrado com o nome '" + nome + "'.");}
+
                     } else if (menu == 2) {
                         System.out.println("Por que especialidade deseja procurar? :");
                         String esp = scanner.nextLine();
                         List<String> l = medic.procuraEspecialidade(esp);           // por bonito
-                        for (String id : l) {
-                            System.out.println(id);
-                        }
+                        if (!l.isEmpty()) {
+                            System.out.println("Médicos encontrados para " + esp + "':");
+                            for (String id : l) {
+                                System.out.println("ID: " + id);
+                            }
+                        } else {
+                            System.out.println("Nenhum médico encontrado para a especialidade: '" + esp + "'.");}
                     } else if (menu == 3) {
                         System.out.println("Por que nome deseja procurar? :");
                         String nome = scanner.nextLine();
                         List<String> l = farma.procuraFarmaceutico(nome);
-                        for (String id : l) {
-                            System.out.println("ID: "+ id);
-                        }
+                        if (!l.isEmpty()) {
+                            System.out.println("Farmaceuticos encontrados com o nome '" + nome + "':");
+                            for (String id : l) {
+                                System.out.println("ID: " + id);
+                            }
+                        } else {
+                            System.out.println("Nenhum farmaceutico encontrado com o nome '" + nome + "'.");}
                     } else if (menu == 4) {
                         System.out.println("Por que contacto deseja procurar? :");
                         String telefone = scanner.nextLine();
                         List<String> l = farma.procuraFarmaceuticoTelefone(telefone);    // por bonito
-                        for (String id : l) {
-                            System.out.println(farma.getFarmaceutico(id));
-                        }
+                        if (!l.isEmpty()) {
+                            System.out.println("Farmaceuticos encontrados com o telefone '" + telefone + "':");
+                            for (String id : l) {
+                                System.out.println("ID: " + id);
+                            }
+                        } else {
+                            System.out.println("Nenhum farmaceutico encontrado com o telefone '" + telefone + "'.");}
                     } else if (menu == 5) {
                         System.out.println("Por que nome deseja procurar? :");
                         String nome = scanner.nextLine();
                         List<String> l = utent.procuraUtente(nome);
-                        for (String id : l) {
+                        if (!l.isEmpty()) {
+                            System.out.println("Utentes encontrados para " + nome + ":");
+                            for (String id : l) {
                             System.out.println(utent.getUtente(id));
-                        }
+                        }}
+                        else {System.out.println("Nenhum utente encontado.");}
                     }
                     System.out.println("1- Procurar Medico Nome");
                     System.out.println("2- Procurar por Especialidade");
@@ -336,12 +367,6 @@ public class AppGPC {
         }
     }
 }
-
-
-
-
-
-
 
 
 
