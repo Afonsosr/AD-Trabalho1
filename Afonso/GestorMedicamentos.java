@@ -17,11 +17,6 @@ public class GestorMedicamentos extends UnicastRemoteObject implements APIGestor
         medicamentos = new HashMap<>();
     }
 
-    public Medicamento removeMedicamento(String id) {
-
-        return medicamentos.remove(id);
-    }
-
     // Criação de medicamento com ID gerado automaticamente
     public Medicamento createMedicamento(String nome, String fornecedor, Integer stock) {
         Medicamento nm = new Medicamento(nome, fornecedor, stock);
@@ -75,11 +70,23 @@ public class GestorMedicamentos extends UnicastRemoteObject implements APIGestor
     public List<String> listarMedicamentosComStock() {
         List<String> lista = new ArrayList<>();
         for (Medicamento medicamento : medicamentos.values()) {
-            String info = "Medicamento: " + medicamento.getNome() +
+            String info = "ID: " + medicamento.getId() + ", Nome: " + medicamento.getNome() +
                     ", Fornecedor: " + medicamento.getFornecedor() +
                     ", Stock: " + medicamento.getStock();
             lista.add(info);
         }
         return lista;
     }
+
+    // Método para remover um medicamento
+    public boolean removeMedicamento(String id) {
+        if (medicamentos.containsKey(id)) {
+            medicamentos.remove(id);
+            return true; // Indica que o medicamento foi removido com sucesso
+        } else {
+            System.out.println("Erro: Medicamento com ID " + id + " não encontrado.");
+            return false; // Indica que o medicamento não foi encontrado
+        }
+    }
+
 }

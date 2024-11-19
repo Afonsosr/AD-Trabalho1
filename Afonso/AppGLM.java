@@ -54,6 +54,7 @@ public class AppGLM {
                 System.out.println("5- Listar Medicamentos e Stock");
                 System.out.println("6- Aumentar o Stock de um Medicamento");
                 System.out.println("7- Informar Consumo de Medicamento");
+                System.out.println("8- Remover Medicamento");
                 System.out.println("0- Sair");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
