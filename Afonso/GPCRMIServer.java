@@ -54,10 +54,10 @@ public class GPCRMIServer {
             GestorActos gac = new GestorActos();
 
             // Inicializar os dados
-            inicializarEnfermeiros(ge);
+            //inicializarEnfermeiros(ge);
 
-            inicializarMedicamentos(gmed);
-            inicializarMedicos(gm);
+            //inicializarMedicamentos(gmed);
+            //inicializarMedicos(gm);
 
             // Registrar no RMI Registry
             Naming.rebind("rmi://localhost:50001/GE", ge);
@@ -77,6 +77,7 @@ public class GPCRMIServer {
     }
 
     // Métodos para inicializar os dados de cada gestor
+    /*
     private static void inicializarEnfermeiros(GestorEnfermeiros ge) throws RemoteException {
         ge.createEnfermeiro("Ana Silva", "912345678", "Pediatria");
         ge.createEnfermeiro("Carlos Santos", "913456789", "Urgências");
@@ -98,7 +99,7 @@ public class GPCRMIServer {
         gm.createMedico("Dra. Inês Ferreira", "Pediatria", "913234234");
         System.out.println("Médicos inicializados.");
     }
-
+    */
 
 
 }

@@ -31,8 +31,8 @@ public class AppGPC {
         try {
 
 
-            APIGestorEnfermeiros enfer = null;
-            enfer = (APIGestorEnfermeiros)Naming.lookup("rmi://localhost:50001/GE");
+            APIGestorEnfermeiros enfer1 = null;
+            enfer1 = (APIGestorEnfermeiros)Naming.lookup("rmi://localhost:50001/GE");
             APIGestorFarmaceuticos farma = null;
             farma = (APIGestorFarmaceuticos) Naming.lookup("rmi://localhost:50001/GF");
             APIGestorMedicos medic = null;
@@ -48,11 +48,11 @@ public class AppGPC {
 
 
             // Criar 5 enfermeiros
-            enfer.createEnfermeiro("Ana Silva", "912345678", "Pediatria");
-            enfer.createEnfermeiro("Carlos Santos", "913456789", "Urgências");
-            enfer.createEnfermeiro("Maria Oliveira", "914567890", "Oncologia");
-            enfer.createEnfermeiro("João Almeida", "915678901", "Cardiologia");
-            enfer.createEnfermeiro("Sofia Costa", "916789012", "Neurologia");
+            enfer1.createEnfermeiro("Ana Silva", "912345678", "Pediatria");
+            enfer1.createEnfermeiro("Carlos Santos", "913456789", "Urgências");
+            enfer1.createEnfermeiro("Maria Oliveira", "914567890", "Oncologia");
+            enfer1.createEnfermeiro("João Almeida", "915678901", "Cardiologia");
+            enfer1.createEnfermeiro("Sofia Costa", "916789012", "Neurologia");
 
 
 
@@ -137,7 +137,7 @@ public class AppGPC {
                     if (menu == 1) {
                         System.out.println("Por que nome deseja procurar? :");
                         String nomeEn = scanner.nextLine();
-                        List<String> l = enfer.procuraEnfermeiro(nomeEn);
+                        List<String> l = enfer1.procuraEnfermeiro(nomeEn);
                         if (!l.isEmpty()) {
                             System.out.println("Enfermeiros encontrados com o nome '" + nomeEn + "':");
                             for (String ide : l) {
@@ -149,9 +149,9 @@ public class AppGPC {
                     } else if (menu == 2) {
                         System.out.println("Por que contacto deseja procurar? :");
                         String telefone = scanner.nextLine();
-                        List<String> l = enfer.procuraEnfermeiroTelefone(telefone);
+                        List<String> l = enfer1.procuraEnfermeiroTelefone(telefone);
                         for (String id : l) {
-                            System.out.println(enfer.getEnfermeiro(id));
+                            System.out.println(enfer1.getEnfermeiro(id));
                         }
                     } else if (menu == 3) {
                         System.out.println("Por que nome deseja procurar? :");
@@ -189,10 +189,10 @@ public class AppGPC {
                     }
                     System.out.println("1- Procurar Enfermeiro Nome");
                     System.out.println("2- Procurar Enfermeiro Telefone");
-                    System.out.println("3- Procurar Farmaceutico Nome");
+                    System.out.println("3- Procurar Farmaceutico Nome");          // ver o que se passa
                     System.out.println("4- Procurar Utente Nome");
                     System.out.println("5- Administração de medicamento");
-                    System.out.println("6- Realizar Acto Médico");
+                    System.out.println("6- Realizar Acto Médico");               //nao ta a dar
                     System.out.println("0- Sair");
                     menu = scanner.nextInt();
                     scanner.nextLine();

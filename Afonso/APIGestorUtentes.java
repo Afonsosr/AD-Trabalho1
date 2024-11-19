@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface APIGestorUtentes extends Remote {
-    public Utente createUtente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao) throws RemoteException;
+    public Utente createUtente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao, ArrayList<String> condicoes) throws RemoteException;
 
     public Utente getUtente(String id) throws RemoteException;
 

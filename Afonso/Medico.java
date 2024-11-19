@@ -9,16 +9,14 @@ public class Medico implements Serializable {
     private String telefone;
     private String especialidade;
 
-    public Medico(String id, String nome, String telefone, String especialidade) {
+    public Medico(String id, String nome, String telefone) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.telefone = telefone;
         this.especialidade = especialidade;
     }
 
-    public Medico(String nome, String telefone, String especialidade) {
-        this.id = UUID.randomUUID().toString();
-    }
+
 
     public String getId() {
         return id;

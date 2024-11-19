@@ -18,9 +18,10 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
         enfermeiros = new HashMap<>();
     }
 
-    public void createEnfermeiro(String nome, String telefone, String especialidade) {
-        Enfermeiro nm = new Enfermeiro(nome,telefone,especialidade);
+    public Enfermeiro createEnfermeiro(String nome, String telefone, String especialidade) {
+        Enfermeiro nm = new Enfermeiro(nome, telefone, especialidade);
         enfermeiros.put(nm.getId(), nm);
+        return nm;
     }
 
     public Enfermeiro removeEnfermeiro(String id) {

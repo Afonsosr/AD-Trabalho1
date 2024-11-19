@@ -9,16 +9,14 @@ public class Farmaceutico implements Serializable {
     private String telefone;
 
 
-    public Farmaceutico(String id, String nome, String telefone) {
+    public Farmaceutico(String id, String nome) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.telefone = telefone;
 
     }
 
-    public Farmaceutico(String nome, String telefone) {
-        this.id = UUID.randomUUID().toString();
-    }
+
 
     public String getId() {
         return id;

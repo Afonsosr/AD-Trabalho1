@@ -19,8 +19,8 @@ public class GestorUtentes extends UnicastRemoteObject implements APIGestorUtent
         utentes = new HashMap<>();
     }
 
-    public Utente createUtente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao) {
-        Utente nu = new Utente(nome,genero,dataNascimento,medicacao);
+    public Utente createUtente(String nome, String genero, LocalDate dataNascimento,  ArrayList<String> medicacao, ArrayList<String> condicoes) {
+        Utente nu = new Utente(nome, genero, dataNascimento, medicacao, condicoes);
         utentes.put(nu.getId(), nu);
         return nu;
     }
