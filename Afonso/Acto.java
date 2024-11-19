@@ -58,7 +58,7 @@ public class Acto implements Serializable {
 
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Acto{" +
                 "id do acto='" + id_acto + '\'' +
                 "id do profissional='" + id_profissional + '\'' +
                 "id do utente='" + id_utente + '\'' +
