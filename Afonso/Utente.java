@@ -63,7 +63,7 @@ public class Utente implements Serializable {
 
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Utente{" +
                 "id='" + id + '\'' +
                 "nome='" + nome + '\'' +
                 ", genero='" + genero + '\'' +
