@@ -17,5 +17,7 @@ public interface APIGestorFarmaceuticos extends Remote {
 
     int totalFarmaceuticos() throws RemoteException;
 
+    public List<String> listarFarmaceuticos() throws RemoteException;
+
     public void alteraTelefone(String id, String telefone) throws RemoteException;
 }

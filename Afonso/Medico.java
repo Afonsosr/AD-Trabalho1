@@ -1,6 +1,8 @@
 package trabalho;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Medico implements Serializable {
@@ -42,7 +44,6 @@ public class Medico implements Serializable {
     public String getEspecialidade() {
         return especialidade;
     }
-
 
 
     @Override

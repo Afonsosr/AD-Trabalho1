@@ -124,7 +124,10 @@ public class AppGPC {
                 System.out.println("3- Procurar Farmaceutico Nome");
                 System.out.println("4- Procurar Utente Nome");
                 System.out.println("5- Administração de medicamento");
-                System.out.println("6- Realizar Acto Médico");
+                System.out.println("6- Listar Enfermeiros");
+                System.out.println("7- Listar Farmaceuticos");
+                System.out.println("8- Listar Médicos");
+                System.out.println("9- Realizar Acto Médico");
                 System.out.println("0- Sair");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
@@ -180,7 +183,29 @@ public class AppGPC {
                         int quantidadeDiminuir = scanner.nextInt();
                         meds.reduzStock(idMedicamento, quantidadeDiminuir);
                         System.out.println("Atualização efetuada, tem autorização para utilizar medicamento!");
+
                     } else if (menu == 6) {
+                        System.out.println("Lista de Enfermeiros:");
+                        List<String> listaEnfermeiros = enfer1.listarEnfermeiros();
+                        for (String info : listaEnfermeiros) {
+                            System.out.println(info);
+                        }
+
+                    } else if (menu == 7) {
+                        System.out.println("Lista de Farmaceuticos:");
+                        List<String> listaFarmaceuticos = farma.listarFarmaceuticos();
+                        for (String info : listaFarmaceuticos) {
+                            System.out.println(info);
+                        }
+
+                    } else if (menu == 8) {
+                        System.out.println("Lista de Medicos:");
+                        List<String> listaMedicos = medic.listarMedicos();
+                        for (String info : listaMedicos) {
+                            System.out.println(info);
+                        }
+
+                    } else if (menu == 9) {
                         System.out.print("ID do utente: ");
                         String idut = scanner.nextLine();
                         System.out.print("ID do profissional: ");
@@ -217,6 +242,7 @@ public class AppGPC {
                 System.out.println("2- Procurar Medicamento");
                 System.out.println("3- Utilizar Medicamento");
                 System.out.println("4- Procurar Utente Nome");
+                System.out.println("5- Listar Médicos");
                 System.out.println("0- Sair");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
@@ -265,7 +291,12 @@ public class AppGPC {
                         } else {
                             System.out.println("Nenhum utente encontrado com o nome '" + nome + "'.");
                         }
-                    }
+                    } else if (menu == 5) {
+                    System.out.println("Lista de Medicos:");
+                    List<String> listaMedicos = medic.listarMedicos();
+                    for (String info : listaMedicos) {
+                        System.out.println(info);
+                    }}
                     System.out.println("1- Procurar Médico Nome");
                     System.out.println("2- Procurar Medicamento");
                     System.out.println("3- Utilizar Medicamento");

@@ -20,5 +20,7 @@ public interface APIGestorMedicos extends Remote {
 
     public int totalMedicos() throws RemoteException;
 
+    public List<String> listarMedicos() throws RemoteException;
+
     public Map<String, Integer> distribuicaoPorEspecialidades() throws RemoteException;
 }

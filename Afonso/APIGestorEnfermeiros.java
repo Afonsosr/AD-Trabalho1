@@ -21,4 +21,6 @@ public interface APIGestorEnfermeiros extends Remote{
     public void alteraTelefone(String id, String telefone) throws RemoteException;
 
     public Map<String, Integer> distribuicaoPorEspecialidades() throws RemoteException;
+
+    public List<String> listarEnfermeiros() throws RemoteException;
 }

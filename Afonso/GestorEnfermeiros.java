@@ -72,6 +72,19 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
     }
 
 
+    public List<String> listarEnfermeiros() {
+        List<String> lista = new ArrayList<>();
+        for (Enfermeiro enfermeiro : enfermeiros.values()) {
+            String info = "Enfermeiro: " + enfermeiro.getId() +
+                    ", Nome: " + enfermeiro.getNome() +
+                    ", Contacto: " + enfermeiro.getTelefone() +
+                    ", Especialidade: " + enfermeiro.getEspecialidade();
+            lista.add(info);
+        }
+        return lista;
+    }
+
+
     public int totalEnfermeiros() {
         return enfermeiros.size();
     }

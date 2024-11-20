@@ -58,6 +58,18 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGesto
         }
     }
 
+    public List<String> listarFarmaceuticos() {
+        List<String> lista = new ArrayList<>();
+        for (Farmaceutico farmaceutico : farmaceuticos.values()) {
+            String info = "Farmaceutico: " + farmaceutico.getId() +
+                    ", Nome: " + farmaceutico.getNome() +
+                    ", Contacto: " + farmaceutico.getTelefone();
+            lista.add(info);
+        }
+        return lista;
+    }
+
+
     public int totalFarmaceuticos() {
         return farmaceuticos.size();
     }
