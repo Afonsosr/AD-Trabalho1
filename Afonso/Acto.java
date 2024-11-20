@@ -64,5 +64,3 @@ public class Acto implements Serializable {
     }
 
 }
-
-

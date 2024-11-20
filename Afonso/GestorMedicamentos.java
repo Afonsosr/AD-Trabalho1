@@ -59,17 +59,26 @@ public class GestorMedicamentos extends UnicastRemoteObject implements APIGestor
     }
 
     // Método para reduzir o stock de um medicamento - quando uma quantidade de medicamento é consumida reduz o stock
-    public void reduzStock(String id, Integer quantidade) {
+    public String reduzStock(String id, Integer quantidade) {
         if (medicamentos.containsKey(id)) {
             Medicamento med = medicamentos.get(id);
             int novoStock = med.getStock() - quantidade;
+
             if (novoStock >= 0) {
                 med.setStock(novoStock);
+
+                if (novoStock < 10) {
+                    return "O stock do medicamento está abaixo de 10!";
+                }
+                return "Stock do medicamento reduzido com sucesso!";
             } else {
-                System.out.println("Erro: Quantidade insuficiente em estoque.");
+                return "Quantidade insuficiente em stock.";
             }
+        } else {
+            return "Medicamento não encontrado.";
         }
     }
+
 
     // Método para listar todos os medicamentos e o stock de cada um
     public List<String> listarMedicamentosComStock() {

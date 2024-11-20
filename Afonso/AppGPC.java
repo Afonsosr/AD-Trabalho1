@@ -412,6 +412,3 @@ public class AppGPC {
         }
     }
 }
-
-
-

@@ -15,7 +15,7 @@ public interface APIGestorMedicamentos extends Remote {
 
     public List<String> listarMedicamentosComStock() throws RemoteException;
 
-    public void reduzStock(String id, Integer quantidade) throws RemoteException;
+    public String reduzStock(String id, Integer quantidade)  throws RemoteException;
 
     public void aumentaStock(String id, Integer quantidade) throws RemoteException;
 
