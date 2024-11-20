@@ -54,7 +54,6 @@ public class AppGLM {
                 System.out.println("5- Listar Medicamentos e Stock");
                 System.out.println("6- Aumentar o Stock de um Medicamento");
                 System.out.println("7- Informar Consumo de Medicamento");
-                System.out.println("8- Remover Medicamento");
                 System.out.println("0- Sair");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
@@ -133,15 +132,14 @@ public class AppGLM {
                         System.out.println("Stock do medicamento aumentado com sucesso!");
 
                     } else if (menu == 7) {
+
                         // Reduzir stock de um medicamento
                         System.out.print("ID do medicamento: ");
                         String idMedicamentoReduzir = scanner.nextLine();
                         System.out.print("Quantidade consumida: ");
                         int quantidadeReduzir = scanner.nextInt();
-
                         meds.reduzStock(idMedicamentoReduzir, quantidadeReduzir);
                         System.out.println("Stock do medicamento reduzido com sucesso!");
-
                     } else if (menu == 8) {
                         System.out.print("ID do medicamento a eliminar: ");
                         String idMedicamento = scanner.nextLine();

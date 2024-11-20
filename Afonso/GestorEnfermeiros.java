@@ -29,9 +29,6 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
     }
 
 
-
-
-
     public Enfermeiro getEnfermeiro(String id) {
         return enfermeiros.get(id);
     }
@@ -62,6 +59,18 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
             enfermeiro.setTelefone(telefone);
         }
     }
+
+    public Map<String, Integer> distribuicaoPorEspecialidades() {
+        Map<java.lang.String, java.lang.Integer> distribuicao = new HashMap<>();
+
+        for (Enfermeiro e : this.enfermeiros.values()) {
+            java.lang.String especialidadeEnf = e.getEspecialidade();
+            distribuicao.put(especialidadeEnf, distribuicao.getOrDefault(especialidadeEnf, 0) + 1);
+        }
+
+        return distribuicao;
+    }
+
 
     public int totalEnfermeiros() {
         return enfermeiros.size();

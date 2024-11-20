@@ -63,4 +63,15 @@ public class GestorMedicos extends UnicastRemoteObject implements APIGestorMedic
         return res;
     }
 
+    public Map<String, Integer> distribuicaoPorEspecialidades() {
+        Map<String, Integer> distribuicao = new HashMap<>();
+
+        for (Medico m : this.medicos.values()) {
+            String especialidade = m.getEspecialidade(); // Obtenha a especialidade do médico
+            distribuicao.put(especialidade, distribuicao.getOrDefault(especialidade, 0) + 1);
+        }
+
+        return distribuicao;
+    }
+
 }

@@ -5,11 +5,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.time.LocalDate;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
-//import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.*;
 
 
 //******************************************
@@ -73,9 +69,6 @@ public class AppGPC {
 
 
 
-            // *******************************************
-            // Criar 5 utentes              // falta arranjar aqui as coisas das datas
-            // *******************************************
 
             ArrayList<String> medicacao1 = new ArrayList<>();
             medicacao1.add("Paracetamol");
@@ -177,9 +170,9 @@ public class AppGPC {
                         if (l.isEmpty()) {
                             System.out.println("Não foram encontrados utentes com o nome fornecido.");
                         } else {
-                        for (String id : l) {
-                            System.out.println(utent.getUtente(id));
-                        }}
+                            for (String id : l) {
+                                System.out.println(utent.getUtente(id));
+                            }}
                     } else if (menu == 5) {
                         System.out.print("ID do medicamento: ");
                         String idMedicamento = scanner.nextLine();
@@ -346,8 +339,8 @@ public class AppGPC {
                         if (!l.isEmpty()) {
                             System.out.println("Utentes encontrados para " + nome + ":");
                             for (String id : l) {
-                            System.out.println(utent.getUtente(id));
-                        }}
+                                System.out.println(utent.getUtente(id));
+                            }}
                         else {System.out.println("Nenhum utente encontado.");}
                     }
                     System.out.println("1- Procurar Medico Nome");
@@ -360,6 +353,58 @@ public class AppGPC {
                     scanner.nextLine();
                 }
             }
+            else if (Objects.equals(log, "gestor") && Objects.equals(pass, "gestor")) {
+                System.out.println("-------- MENU ESTATÍSTICO --------");
+                System.out.println("1- Estatísticas gerais");
+                System.out.println("2- Estatísticas dos utentes");
+                System.out.println("3- Estatísticas de especialidades médicos");
+                System.out.println("4. Estatísticas de especialidades enfermeiros");
+                System.out.println("0- Sair");
+                int menu = scanner.nextInt();
+                scanner.nextLine();
+
+                if (menu == 1) {
+                    System.out.println("\n--- Estatísticas Gerais ---");
+                    System.out.println("Número total de utentes: " + utent.totalUtentes());
+                    System.out.println("Número total de médicos: " + medic.totalMedicos());
+                    System.out.println("Número total de enfermeiros: " + enfer1.totalEnfermeiros());
+                    System.out.println("Número total de farmacêuticos: " + farma.totalFarmaceuticos());
+                    System.out.println("Número total de atos médicos: " + acts.totalActos());
+                } else if (menu == 2) {
+                    System.out.println("\n--- Estatísticas dos Utentes ---");
+
+                    System.out.println("Distribuição etária:");
+                    Map<String, Integer> ageDistribution = utent.getAgeDistribution();
+                    for (Map.Entry<String, Integer> entry : ageDistribution.entrySet()) {
+                        System.out.println("  " + entry.getKey() + ": " + entry.getValue());
+                    }
+                    System.out.println("Número de utentes por género:");
+                    Map<String, Integer> genderDistribution = utent.getGenderDistribution();
+                    for (Map.Entry<String, Integer> entry : genderDistribution.entrySet()) {
+                        System.out.println("  " + entry.getKey() + ": " + entry.getValue());
+                    }
+                } else if (menu == 3) {
+                    System.out.println("Distribuição de médicos por especialidade:");
+                    Map<String, Integer> especialidadesmed = medic.distribuicaoPorEspecialidades();
+                    especialidadesmed.forEach((especialidade, count) ->
+                            System.out.println(especialidade + ": " + count + " médico(s)")
+                    );
+
+
+                } else if (menu == 4) {
+                    System.out.println("Distribuição de enfermeiros por especialidade:");
+                    Map<String, Integer> especialidadesEnfermeiros = enfer1.distribuicaoPorEspecialidades();
+                    especialidadesEnfermeiros.forEach((especialidade, count) ->
+                            System.out.println(especialidade + ": " + count + " enfermeiro(s)")
+                    );
+
+
+                }
+                else if (menu == 0) {
+                    return;
+                }
+            }
+
             System.out.print("GPC encerrado com sucesso!");
 
         }catch (NotBoundException | MalformedURLException | RemoteException e) {
@@ -367,7 +412,6 @@ public class AppGPC {
         }
     }
 }
-
 
 
 

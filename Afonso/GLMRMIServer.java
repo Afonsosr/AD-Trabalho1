@@ -21,7 +21,7 @@ public class GLMRMIServer {
             Naming.rebind("rmi://localhost:50001/GM",gm);
             Naming.rebind("rmi://localhost:50001/GUT",gut);
             Naming.rebind("rmi://localhost:50001/GACT",gac);
-            System.out.println("Running");
+
 
         } catch (RemoteException e) {
             throw new RuntimeException(e);

@@ -61,6 +61,8 @@ public class Utente implements Serializable {
         this.condicoes = condicoes;
     }
 
+
+
     @Override
     public String toString() {
         return "Utente{" +
@@ -72,6 +74,7 @@ public class Utente implements Serializable {
                 ", condicoes=" + condicoes +
                 '}';
     }
+
 
 }
 

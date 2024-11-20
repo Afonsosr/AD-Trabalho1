@@ -12,7 +12,7 @@ public interface APIGestorActos extends Remote{
 
     public Acto getActo(String id) throws RemoteException;
 
-
+    public int totalActos() throws RemoteException;
 
 
 }

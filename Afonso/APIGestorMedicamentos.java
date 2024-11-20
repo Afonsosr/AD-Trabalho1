@@ -19,7 +19,7 @@ public interface APIGestorMedicamentos extends Remote {
 
     public void aumentaStock(String id, Integer quantidade) throws RemoteException;
 
-    public boolean removeMedicamento(String id) throws RemoteException;
+    public Medicamento removeMedicamento(String id) throws RemoteException;
 
 
 }
