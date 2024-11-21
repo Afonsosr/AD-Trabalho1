@@ -16,8 +16,6 @@ public class Farmaceutico implements Serializable {
 
     }
 
-
-
     public String getId() {
         return id;
     }
@@ -37,7 +35,6 @@ public class Farmaceutico implements Serializable {
         this.telefone = telefone;
     }
 
-    @Override
     public String toString() {
         return "Farmaceutico{" +
                 "id='" + id + '\'' +
@@ -47,7 +44,6 @@ public class Farmaceutico implements Serializable {
     }
 
 }
-
 
 
 

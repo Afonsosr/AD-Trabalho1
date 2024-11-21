@@ -18,8 +18,8 @@ public class Utente implements Serializable {
         this.nome = nome;
         this.genero = genero;
         this.dataNascimento = dataNascimento;
-        this.medicacao = new ArrayList<>();
-        this.condicoes = new ArrayList<>();
+        this.medicacao = medicacao;
+        this.condicoes = condicoes;
     }
 
 
@@ -61,9 +61,6 @@ public class Utente implements Serializable {
         this.condicoes = condicoes;
     }
 
-
-
-    @Override
     public String toString() {
         return "Utente{" +
                 "id='" + id + '\'' +

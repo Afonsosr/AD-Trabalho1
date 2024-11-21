@@ -20,10 +20,9 @@ public class GestorUtentes extends UnicastRemoteObject implements APIGestorUtent
         utentes = new HashMap<>();
     }
 
-    public Utente createUtente(String nome, String genero, LocalDate dataNascimento,  ArrayList<String> medicacao, ArrayList<String> condicoes) {
+    public void createUtente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao, ArrayList<String> condicoes) {
         Utente nu = new Utente(nome, genero, dataNascimento, medicacao, condicoes);
         utentes.put(nu.getId(), nu);
-        return nu;
     }
 
     public Utente getUtente(String id) {return utentes.get(id);}
@@ -60,7 +59,7 @@ public class GestorUtentes extends UnicastRemoteObject implements APIGestorUtent
 
         for (Utente u : this.utentes.values()) {
             int idade = calculateAge(u.getDataNascimento(), currentDate); // Calcula a idade
-            String faixaEtaria = getFaixaEtaria(idade); // Obtém a faixa etária com base na idade
+            String faixaEtaria = getFaixaEtaria(idade);
             distribution.put(faixaEtaria, distribution.getOrDefault(faixaEtaria, 0) + 1);
         }
         return distribution;

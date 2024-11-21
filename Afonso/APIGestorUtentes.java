@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface APIGestorUtentes extends Remote {
-    public Utente createUtente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao, ArrayList<String> condicoes) throws RemoteException;
+    public void createUtente(String nome, String genero, LocalDate dataNascimento, ArrayList<String> medicacao, ArrayList<String> condicoes) throws RemoteException;
 
     public Utente getUtente(String id) throws RemoteException;
 

@@ -52,7 +52,7 @@ public class Acto implements Serializable {
         this.descricao = descricao;
     }
 
-    @Override
+
     public String toString() {
         return "Acto{" +
                 "id do acto='" + id_acto + '\'' +

@@ -1,17 +1,25 @@
 package trabalho;
 
+import java.rmi.Naming;
 import java.util.Scanner;
 
 public class Central {
     private static Thread gpcrmiThread;
     private static Thread glmRmiThread;
 
+
+
     public static void main(String[] args) {
         try {
+
+
+
             // Inicia os servidores RMI automaticamente
             startServers();
 
-            // Exibe o menu para o usuário escolher a aplicação
+
+
+            // menu app principal
             showMenu();
 
         } catch (Exception e) {
@@ -21,7 +29,6 @@ public class Central {
     }
 
     private static void startServers() {
-        // Inicia GPCRMIServer
         gpcrmiThread = new Thread(() -> {
             try {
                 GPCRMIServer.main(null);
@@ -32,7 +39,7 @@ public class Central {
         });
         gpcrmiThread.start();
 
-        // Inicia GLMRMIServer
+
         glmRmiThread = new Thread(() -> {
             try {
                 GLMRMIServer.main(null);
@@ -57,17 +64,17 @@ public class Central {
 
             switch (choice) {
                 case "1":
-                    System.out.println("\nIniciando AppGPC...");
+                    System.out.println("\nA iniciar AppGPC...");
                     startAppGPC();
                     break;
 
                 case "2":
-                    System.out.println("\nIniciando AppGLM...");
+                    System.out.println("\nA iniciar AppGLM...");
                     startAppGLM();
                     break;
 
                 case "0":
-                    System.out.println("\nEncerrando o sistema...");
+                    System.out.println("\nObrigado por utilizar a nossa aplicação!");
                     stopServers();
                     scanner.close();
                     System.exit(0); // Fecha o programa completamente

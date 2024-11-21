@@ -22,6 +22,15 @@ public class GLMRMIServer {
             Naming.rebind("rmi://localhost:50001/GUT",gut);
             Naming.rebind("rmi://localhost:50001/GACT",gac);
 
+            // Cria alguns medicamentos
+            gmed.createMedicamento("Paracetamol", "FornecedorA", 50);
+            gmed.createMedicamento("Ibuprofeno", "FornecedorD", 40);
+            gmed.createMedicamento("Vitamina C", "FornecedorA", 110);
+            gmed.createMedicamento("Vitamina C", "FornecedorE", 450);
+            gmed.createMedicamento("Antibiótico", "FornecedorB", 10);
+            gmed.createMedicamento("Strepsils", "FornecedorD", 100);
+
+
 
         } catch (RemoteException e) {
             throw new RuntimeException(e);

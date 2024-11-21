@@ -43,8 +43,6 @@ public class Enfermeiro implements Serializable {
     }
 
 
-
-    @Override
     public String toString() {
         return "Enfermeiro{" +
                 "id='" + id + '\'' +
@@ -55,5 +53,4 @@ public class Enfermeiro implements Serializable {
     }
 
 }
-
 

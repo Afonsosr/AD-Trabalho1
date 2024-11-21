@@ -28,15 +28,6 @@ public class AppGLM {
             APIGestorMedicamentos meds = null;
             meds = (APIGestorMedicamentos) Naming.lookup("rmi://localhost:50001/GMED");
 
-            // Cria alguns medicamentos
-            meds.createMedicamento("Paracetamol", "FornecedorA", 50);
-            meds.createMedicamento("Ibuprofeno", "FornecedorD", 40);
-            meds.createMedicamento("Vitamina C", "FornecedorA", 110);
-            meds.createMedicamento("Vitamina C", "FornecedorE", 450);
-            meds.createMedicamento("Antibiótico", "FornecedorB", 10);
-            meds.createMedicamento("Strepsils", "FornecedorD", 100);
-
-
 
             System.out.println("------Login------");
             System.out.println("Utilizador: ");
@@ -46,7 +37,7 @@ public class AppGLM {
 
             if (Objects.equals(log, "gestor") && Objects.equals(pass, "gestor")) {
 
-
+                System.out.println("----------- MENU GLM -----------");
                 System.out.println("1- Adicionar Novo Medicamento");
                 System.out.println("2- Procurar Medicamento ID");
                 System.out.println("3- Procurar Medicamento Nome");
@@ -55,6 +46,7 @@ public class AppGLM {
                 System.out.println("6- Aumentar o Stock de um Medicamento");
                 System.out.println("7- Informar Consumo de Medicamento");
                 System.out.println("0- Sair");
+                System.out.print("Escolha uma opção: ");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
 
@@ -147,12 +139,12 @@ public class AppGLM {
                         System.out.print("ID do medicamento a eliminar: ");
                         String idMedicamento = scanner.nextLine();
                         meds.removeMedicamento(idMedicamento);
-                        System.out.print("Medicamento eliminado com sucesso!");
+                        System.out.println("Medicamento eliminado com sucesso!");
 
 
                     }
 
-
+                    System.out.println("----------- MENU GLM -----------");
                     System.out.println("1- Adicionar Novo Medicamento");
                     System.out.println("2- Procurar Medicamento ID");
                     System.out.println("3- Procurar Medicamento Nome");
@@ -162,6 +154,7 @@ public class AppGLM {
                     System.out.println("7- Informar Consumo de Medicamento");
                     System.out.println("8- Remover Medicamento");
                     System.out.println("0- Sair");
+                    System.out.print("Escolha uma opção: ");
                     menu = scanner.nextInt();
                     scanner.nextLine();
 
