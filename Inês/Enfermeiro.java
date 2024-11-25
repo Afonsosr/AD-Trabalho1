@@ -1,4 +1,4 @@
-package Trabalho;
+package trabalho;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -9,16 +9,13 @@ public class Enfermeiro implements Serializable {
     private String telefone;
     private String especialidade;
 
-    public Enfermeiro(String id, String nome, String telefone, String especialidade) {
+    public Enfermeiro(String nome, String telefone, String especialidade) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.telefone = telefone;
         this.especialidade = especialidade;
     }
 
-    public Enfermeiro(String nome, String telefone, String especialidade) {
-        this.id = UUID.randomUUID().toString();
-    }
 
     public String getId() {
         return id;
@@ -49,7 +46,7 @@ public class Enfermeiro implements Serializable {
 
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Enfermeiro{" +
                 "id='" + id + '\'' +
                 "nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +

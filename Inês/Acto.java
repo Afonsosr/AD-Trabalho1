@@ -1,28 +1,24 @@
-package Trabalho;
+package trabalho;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.UUID;
 
 public class Acto implements Serializable {
     private String id_acto;
     private String id_utente;
     private String id_profissional;
-    private LocalDateTime data_acto;
+    private LocalDate data_acto;
     private String descricao;
 
 
-    public Acto(String id, String nome, String telefone) {
+    public Acto(String id_utente, String id_profissional, LocalDate data_acto, String descricao) {
         this.id_acto  = UUID.randomUUID().toString();
         this.id_utente = id_utente;
         this.id_profissional = id_profissional;
         this.data_acto = data_acto;
         this.descricao = descricao;
 
-    }
-
-    public Acto() {
-        this.id_acto = UUID.randomUUID().toString();
     }
 
     public String getId() {
@@ -43,10 +39,10 @@ public class Acto implements Serializable {
     public void setId_profissional(String id_profissional) {
         this.id_profissional = id_profissional;
     }
-    public LocalDateTime getData_acto() {
+    public LocalDate getData_acto() {
         return data_acto;
     }
-    public void setData_acto(LocalDateTime data_acto) {
+    public void setData_acto(LocalDate data_acto) {
         this.data_acto = data_acto;
     }
     public String getDescricao() {
@@ -58,7 +54,7 @@ public class Acto implements Serializable {
 
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Acto{" +
                 "id do acto='" + id_acto + '\'' +
                 "id do profissional='" + id_profissional + '\'' +
                 "id do utente='" + id_utente + '\'' +
@@ -68,5 +64,3 @@ public class Acto implements Serializable {
     }
 
 }
-
-

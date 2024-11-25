@@ -1,4 +1,4 @@
-package Trabalho;
+package trabalho;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
@@ -23,14 +23,6 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGesto
         return nm;
     }
 
-    public Farmaceutico removeFarmaceutico(String id) {
-        return farmaceuticos.remove(id);
-    }
-
-    public Farmaceutico getFarmaceutico(String id) {
-        return farmaceuticos.get(id);
-    }
-
     public List<String> procuraFarmaceutico(String nome) {
         List<String> res = new ArrayList<>();
         for (Farmaceutico m : this.farmaceuticos.values()) {
@@ -51,12 +43,18 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGesto
         return res;
     }
 
-    public void alteraTelefone(String id, String telefone) {
-        Farmaceutico farmaceutico = farmaceuticos.get(id);
-        if (farmaceutico != null) {
-            farmaceutico.setTelefone(telefone);
+
+    public List<String> listarFarmaceuticos() {
+        List<String> lista = new ArrayList<>();
+        for (Farmaceutico farmaceutico : farmaceuticos.values()) {
+            String info = "Farmaceutico: " + farmaceutico.getId() +
+                    ", Nome: " + farmaceutico.getNome() +
+                    ", Contacto: " + farmaceutico.getTelefone();
+            lista.add(info);
         }
+        return lista;
     }
+
 
     public int totalFarmaceuticos() {
         return farmaceuticos.size();
@@ -64,4 +62,3 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGesto
 
 
 }
-

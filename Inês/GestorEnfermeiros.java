@@ -1,4 +1,4 @@
-package Trabalho;
+package trabalho;
 
 import java.io.Serializable;
 import java.rmi.RemoteException;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 
-public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorEnfermeiro, Serializable {
+public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorEnfermeiros, Serializable {
 
     private Map<String, Enfermeiro> enfermeiros;
 
@@ -24,15 +24,8 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
         return nm;
     }
 
-    public Enfermeiro removeEnfermeiro(String id) {
-        return enfermeiros.remove(id);
-    }
 
-    public Enfermeiro getEnfermeiro(String id) {
-        return enfermeiros.get(id);
-    }
-
-    public List<String> procuraEnfemeiro(String nome) {
+    public List<String> procuraEnfermeiro(String nome) {
         List<String> res = new ArrayList<>();
         for (Enfermeiro m : this.enfermeiros.values()) {
             if (m.getNome().contains(nome)) {
@@ -58,6 +51,31 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
             enfermeiro.setTelefone(telefone);
         }
     }
+
+    public Map<String, Integer> distribuicaoPorEspecialidades() {
+        Map<java.lang.String, java.lang.Integer> distribuicao = new HashMap<>();
+
+        for (Enfermeiro e : this.enfermeiros.values()) {
+            java.lang.String especialidadeEnf = e.getEspecialidade();
+            distribuicao.put(especialidadeEnf, distribuicao.getOrDefault(especialidadeEnf, 0) + 1);
+        }
+
+        return distribuicao;
+    }
+
+
+    public List<String> listarEnfermeiros() {
+        List<String> lista = new ArrayList<>();
+        for (Enfermeiro enfermeiro : enfermeiros.values()) {
+            String info = "Enfermeiro: " + enfermeiro.getId() +
+                    ", Nome: " + enfermeiro.getNome() +
+                    ", Contacto: " + enfermeiro.getTelefone() +
+                    ", Especialidade: " + enfermeiro.getEspecialidade();
+            lista.add(info);
+        }
+        return lista;
+    }
+
 
     public int totalEnfermeiros() {
         return enfermeiros.size();

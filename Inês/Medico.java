@@ -1,6 +1,8 @@
-package Trabalho;
+package trabalho;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Medico implements Serializable {
@@ -9,16 +11,14 @@ public class Medico implements Serializable {
     private String telefone;
     private String especialidade;
 
-    public Medico(String id, String nome, String telefone, String especialidade) {
+    public Medico(String nome, String telefone, String especialidade) {
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
         this.telefone = telefone;
         this.especialidade = especialidade;
     }
 
-    public Medico(String nome, String telefone, String especialidade) {
-        this.id = UUID.randomUUID().toString();
-    }
+
 
     public String getId() {
         return id;
@@ -46,10 +46,9 @@ public class Medico implements Serializable {
     }
 
 
-
     @Override
     public String toString() {
-        return "Contacto{" +
+        return "Médico{" +
                 "id='" + id + '\'' +
                 "nome='" + nome + '\'' +
                 ", telefone='" + telefone + '\'' +
@@ -58,5 +57,3 @@ public class Medico implements Serializable {
     }
 
 }
-
-

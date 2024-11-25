@@ -1,4 +1,4 @@
-package Trabalho;
+package trabalho;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -15,9 +15,11 @@ public interface APIGestorMedicamentos extends Remote {
 
     public List<String> listarMedicamentosComStock() throws RemoteException;
 
-    public void reduzStock(String id, Integer quantidade) throws RemoteException;
+    public String reduzStock(String id, Integer quantidade)  throws RemoteException;
 
     public void aumentaStock(String id, Integer quantidade) throws RemoteException;
+
+    public Medicamento removeMedicamento(String id) throws RemoteException;
 
 
 }

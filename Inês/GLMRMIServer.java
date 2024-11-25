@@ -1,34 +1,33 @@
-package Trabalho;
+package trabalho;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public class GLMRMIServer {
     public static void main(String[] args) {
 
         try {
-            // Criação dos objetos gestores
-            APIGestorEnfermeiro ge = new GestorEnfermeiros();
+            APIGestorEnfermeiros ge = new GestorEnfermeiros();
             APIGestorFarmaceuticos gf = new GestorFarmaceuticos();
             APIGestorMedicamentos gmed = new GestorMedicamentos();
             APIGestorMedicos gm = new GestorMedicos();
             APIGestorUtentes gut = new GestorUtentes();
+            APIGestorActos gac = new GestorActos();
 
-            // Registra os objetos RMI
-            Naming.rebind("rmi://localhost:50001/GE", (Remote) ge);
-            Naming.rebind("rmi://localhost:50001/GF", (Remote) gf);
-            Naming.rebind("rmi://localhost:50001/GMED", (Remote) gmed);
-            Naming.rebind("rmi://localhost:50001/GM", (Remote) gm);
-            Naming.rebind("rmi://localhost:50001/GUT", (Remote) gut);
+            Naming.rebind("rmi://localhost:50001/GE",ge);
+            Naming.rebind("rmi://localhost:50001/GF",gf);
+            Naming.rebind("rmi://localhost:50001/GMED",gmed);
+            Naming.rebind("rmi://localhost:50001/GM",gm);
+            Naming.rebind("rmi://localhost:50001/GUT",gut);
+            Naming.rebind("rmi://localhost:50001/GACT",gac);
 
-            System.out.println("Servidor RMI em execução...");
 
         } catch (RemoteException e) {
-            throw new RuntimeException("Erro de RMI: ", e);
+            throw new RuntimeException(e);
         } catch (MalformedURLException e) {
-            throw new RuntimeException("Erro na URL do RMI: ", e);
+            throw new RuntimeException(e);
         }
+
     }
 }
