@@ -45,13 +45,6 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
         return res;
     }
 
-    public void alteraTelefone(String id, String telefone) {
-        Enfermeiro enfermeiro = enfermeiros.get(id);
-        if (enfermeiro != null) {
-            enfermeiro.setTelefone(telefone);
-        }
-    }
-
     public Map<String, Integer> distribuicaoPorEspecialidades() {
         Map<java.lang.String, java.lang.Integer> distribuicao = new HashMap<>();
 
