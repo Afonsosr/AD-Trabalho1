@@ -16,14 +16,7 @@ public class Medicamento implements Serializable {
         this.fornecedor = fornecedor;
         this.stock = stock;
     }
-
-    // Construtor alternativo sem o parâmetro de stock
-    public Medicamento(String nome, String fornecedor) {
-        this.id = UUID.randomUUID().toString(); // Gera automaticamente o ID
-        this.nome = nome;
-        this.fornecedor = fornecedor;
-        this.stock = 0;
-    }
+    
 
     public String getId() {
         return id;
