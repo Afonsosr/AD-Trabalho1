@@ -27,10 +27,6 @@ public class GestorUtentes extends UnicastRemoteObject implements APIGestorUtent
 
     public Utente getUtente(String id) {return utentes.get(id);}
 
-    public Utente removeUtente(String id) {
-        return utentes.remove(id);
-    }
-
     public List<String> procuraUtente(String nome) {
         List<String> res = new ArrayList<>();
         for(Utente u : this.utentes.values()) {
@@ -41,17 +37,9 @@ public class GestorUtentes extends UnicastRemoteObject implements APIGestorUtent
         return res;
     }
 
-    public void alteraMedicacao(String id, ArrayList<String> medicacao) {
-        if(utentes.containsKey(id)) {
-            utentes.get(id).setMedicacao(medicacao);
-        }
-    }
-
     public int totalUtentes() {
         return utentes.size();
     }
-
-
 
     public Map<String, Integer> getAgeDistribution() {
         Map<String, Integer> distribution = new HashMap<>();
