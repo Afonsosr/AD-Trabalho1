@@ -24,14 +24,6 @@ public class GestorActos extends UnicastRemoteObject implements APIGestorActos, 
         return na;
     }
 
-    public Acto removeActo(String id) {
-        return actos.remove(id);
-    }
-
-    public Acto getActo(String id){
-        return actos.get(id);
-    }
-
 
     public int totalActos() {
         return actos.size();
