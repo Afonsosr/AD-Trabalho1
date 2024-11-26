@@ -23,13 +23,6 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGesto
         return nm;
     }
 
-    public Farmaceutico removeFarmaceutico(String id) {
-        return farmaceuticos.remove(id);
-    }
-
-    public Farmaceutico getFarmaceutico(String id) {
-        return farmaceuticos.get(id);
-    }
 
     public List<String> procuraFarmaceutico(String nome) {
         List<String> res = new ArrayList<>();
@@ -49,13 +42,6 @@ public class GestorFarmaceuticos extends UnicastRemoteObject implements APIGesto
             }
         }
         return res;
-    }
-
-    public void alteraTelefone(String id, String telefone) {
-        Farmaceutico farmaceutico = farmaceuticos.get(id);
-        if (farmaceutico != null) {
-            farmaceutico.setTelefone(telefone);
-        }
     }
 
     public List<String> listarFarmaceuticos() {
