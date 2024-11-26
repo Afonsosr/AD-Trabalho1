@@ -24,14 +24,6 @@ public class GestorEnfermeiros extends UnicastRemoteObject implements APIGestorE
         return nm;
     }
 
-    public Enfermeiro removeEnfermeiro(String id) {
-        return enfermeiros.remove(id);
-    }
-
-
-    public Enfermeiro getEnfermeiro(String id) {
-        return enfermeiros.get(id);
-    }
 
     public List<String> procuraEnfermeiro(String nome) {
         List<String> res = new ArrayList<>();
