@@ -85,7 +85,7 @@ public class GestorMedicamentos extends UnicastRemoteObject implements APIGestor
         List<String> lista = new ArrayList<>();
         for (Medicamento medicamento : medicamentos.values()) {
             String info = "ID:" + medicamento.getId() +
-                    "Medicamento: " + medicamento.getNome() +
+                    ", Medicamento: " + medicamento.getNome() +
                     ", Fornecedor: " + medicamento.getFornecedor() +
                     ", Stock: " + medicamento.getStock();
             lista.add(info);
