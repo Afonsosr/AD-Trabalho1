@@ -24,13 +24,6 @@ public class GestorMedicos extends UnicastRemoteObject implements APIGestorMedic
         return nm;
     }
 
-    public Medico removeMedico(String id) {
-        return medicos.remove(id);
-    }
-
-    public Medico getMedico(String id){
-        return medicos.get(id);
-    }
 
     public List<String> procuraMedico(String nome){
         List<String> res = new ArrayList<>();
@@ -42,12 +35,6 @@ public class GestorMedicos extends UnicastRemoteObject implements APIGestorMedic
         return res;
     }
 
-
-    public void alteraTelefone(String id, String telefone){
-        if (medicos.containsKey(id)) {
-            medicos.get(id).setTelefone(telefone);
-        }
-    }
 
     public int totalMedicos() {
         return medicos.size();
@@ -73,6 +60,11 @@ public class GestorMedicos extends UnicastRemoteObject implements APIGestorMedic
             lista.add(info);
         }
         return lista;
+    }
+
+
+    public boolean existeMedico(String idMedico) {
+        return medicos.containsKey(idMedico); // Aqui, "medicos" seria o mapa ou lista que contém os médicos.
     }
 
     public Map<String, Integer> distribuicaoPorEspecialidades() {
