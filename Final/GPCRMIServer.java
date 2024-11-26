@@ -135,11 +135,7 @@ public class GPCRMIServer {
             ArrayList<String> condicoes10 = new ArrayList<>();
             condicoes10.add("Infecção bacteriana");
             gut.createUtente("Ricardo Almeida", "Masculino", LocalDate.of(1982, 1, 25), medicacao10, condicoes10);
-//
-//            System.out.println(ge.totalEnfermeiros());
-//            System.out.println(gm.totalMedicos());
-//            System.out.println(gf.totalFarmaceuticos());
-//            System.out.println(gut.totalUtentes());
+
 
             // Registrar no RMI Registry
             Naming.rebind("rmi://localhost:50001/GE",ge);
