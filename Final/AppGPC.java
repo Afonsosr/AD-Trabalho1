@@ -47,7 +47,7 @@ public class AppGPC {
                 System.out.println("3- Procurar Farmaceutico Nome");
                 System.out.println("4- Procurar Utente Nome");
                 System.out.println("5- Administração de medicamento");
-                System.out.println("6- Realizar Acto Médico");
+                
                 System.out.println("0- Sair");
                 System.out.print("Escolha uma opção: ");
                 int menu = scanner.nextInt();
@@ -149,6 +149,7 @@ public class AppGPC {
                 System.out.println("2- Procurar Medicamento");
                 System.out.println("3- Utilizar Medicamento");
                 System.out.println("4- Procurar Utente Nome");
+                System.out.println("5- Listar Médicos");
                 System.out.println("0- Sair");
                 System.out.print("Escolha uma opção: ");
                 int menu = scanner.nextInt();
@@ -203,12 +204,20 @@ public class AppGPC {
                         } else {
                             System.out.println("Nenhum utente encontrado com o nome '" + nome + "'.");
                         }
+                    } else if (menu == 5) {
+                        System.out.println("Lista de Medicos:");
+                        List<String> listaMedicos = medic.listarMedicos();
+                        for (String info : listaMedicos) {
+                            System.out.println(info);
+                        }
                     }
+
                     System.out.println("-------- MENU ENFERMEIRO --------");
                     System.out.println("1- Procurar Médico Nome");
                     System.out.println("2- Procurar Medicamento");
                     System.out.println("3- Utilizar Medicamento");
                     System.out.println("4- Procurar Utente Nome");
+                    System.out.println("5- Listar Médicos");
                     System.out.println("0- Sair");
                     System.out.print("Escolha uma opção: ");
                     menu = scanner.nextInt();
