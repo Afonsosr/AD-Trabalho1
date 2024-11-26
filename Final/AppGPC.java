@@ -41,15 +41,16 @@ public class AppGPC {
 
 
             if (Objects.equals(log, "med") && Objects.equals(pass, "med")) {
-                System.out.println("---------- MENU MÉDICO ----------");
                 System.out.println("1- Procurar Enfermeiro Nome");
                 System.out.println("2- Procurar Enfermeiro Telefone");
                 System.out.println("3- Procurar Farmaceutico Nome");
                 System.out.println("4- Procurar Utente Nome");
                 System.out.println("5- Administração de medicamento");
-                
+                System.out.println("6- Listar Enfermeiros");
+                System.out.println("7- Listar Farmaceuticos");
+                System.out.println("8- Listar Médicos");
+                System.out.println("9- Realizar Acto Médico");
                 System.out.println("0- Sair");
-                System.out.print("Escolha uma opção: ");
                 int menu = scanner.nextInt();
                 scanner.nextLine();
                 while (menu != 0) {
@@ -91,17 +92,12 @@ public class AppGPC {
                         System.out.println("Por que nome deseja procurar? :");
                         String nome = scanner.nextLine();
                         List<String> l = utent.procuraUtente(nome);
-                        if (!l.isEmpty()) {
-                            System.out.println("Utentes encontrados para " + nome + ":");
+                        if (l.isEmpty()) {
+                            System.out.println("Não foram encontrados utentes com o nome fornecido.");
+                        } else {
                             for (String id : l) {
-                                Utente utente = utent.getUtente(id);
-                                System.out.println("Nome: " + utente.getNome());
-                                System.out.println("Género: " + utente.getGenero());
-                                System.out.println("Data de Nascimento: " + utente.getDataNascimento());
-                                System.out.println("Medicação: " + String.join(", ", utente.getMedicacao()));
-                                System.out.println("Condições: " + String.join(", ", utente.getCondicoes()));
-                            }
-                        }
+                                System.out.println(utent.getUtente(id));
+                            }}
                     } else if (menu == 5) {
                         System.out.print("ID do medicamento: ");
                         String idMedicamento = scanner.nextLine();
@@ -109,35 +105,63 @@ public class AppGPC {
                         int quantidadeDiminuir = scanner.nextInt();
                         meds.reduzStock(idMedicamento, quantidadeDiminuir);
                         System.out.println("Atualização efetuada, tem autorização para utilizar medicamento!");
+
                     } else if (menu == 6) {
+                        System.out.println("Lista de Enfermeiros:");
+                        List<String> listaEnfermeiros = enfer1.listarEnfermeiros();
+                        for (String info : listaEnfermeiros) {
+                            System.out.println(info);
+                        }
+
+                    } else if (menu == 7) {
+                        System.out.println("Lista de Farmaceuticos:");
+                        List<String> listaFarmaceuticos = farma.listarFarmaceuticos();
+                        for (String info : listaFarmaceuticos) {
+                            System.out.println(info);
+                        }
+
+                    } else if (menu == 8) {
+                        System.out.println("Lista de Medicos:");
+                        List<String> listaMedicos = medic.listarMedicos();
+                        for (String info : listaMedicos) {
+                            System.out.println(info);
+                        }
+
+                    } else if (menu == 9) {
                         System.out.print("ID do utente: ");
                         String idut = scanner.nextLine();
                         System.out.print("ID do profissional: ");
                         String idprof = scanner.nextLine();
-                        System.out.print("Descrição: ");
-                        String desc = scanner.nextLine();
-                        System.out.print("Ano do acto: ");
-                        Integer year = scanner.nextInt();
-                        System.out.print("Mês do acto: ");
-                        Integer month = scanner.nextInt();
-                        System.out.print("Dia do acto: ");
-                        Integer day = scanner.nextInt();
 
+                        if (!medic.existeMedico(idprof)) {
+                            System.out.println("Erro: O ID do profissional não existe.");
+                        } else {
+                            System.out.print("Descrição: ");
+                            String desc = scanner.nextLine();
+                            System.out.print("Ano do acto: ");
+                            Integer year = scanner.nextInt();
+                            System.out.print("Mês do acto: ");
+                            Integer month = scanner.nextInt();
+                            System.out.print("Dia do acto: ");
+                            Integer day = scanner.nextInt();
 
-                        LocalDate data = LocalDate.of(year, month, day);
+                            LocalDate data = LocalDate.of(year, month, day);
 
-                        acts.createActo(idut, idprof,data, desc);
-                        System.out.println("Acto médico realizado com sucesso!");
+                            acts.createActo(idut, idprof, data, desc);
+                            System.out.println("Acto médico realizado com sucesso!");
+                        }
                     }
-                    System.out.println("---------- MENU MÉDICO ----------");
+
                     System.out.println("1- Procurar Enfermeiro Nome");
                     System.out.println("2- Procurar Enfermeiro Telefone");
                     System.out.println("3- Procurar Farmaceutico Nome");
                     System.out.println("4- Procurar Utente Nome");
                     System.out.println("5- Administração de medicamento");
-                    System.out.println("6- Realizar Acto Médico");
+                    System.out.println("6- Listar Enfermeiros");
+                    System.out.println("7- Listar Farmaceuticos");
+                    System.out.println("8- Listar Médicos");
+                    System.out.println("9- Realizar Acto Médico");
                     System.out.println("0- Sair");
-                    System.out.print("Escolha uma opção: ");
                     menu = scanner.nextInt();
                     scanner.nextLine();
                 }
